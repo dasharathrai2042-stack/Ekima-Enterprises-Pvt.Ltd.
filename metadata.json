@@ -1,0 +1,6 @@
+{
+  "name": "NEXTGEN ERP",
+  "description": "Enterprise multi-company, multi-branch cloud ERP with double-entry accounting, FIFO/Weighted Average inventory, VIN/serial/batch tracking, consolidated financial statements, and Simple/Advanced dual-mode workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
