@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import {
@@ -567,4 +569,16 @@ coreRouter.post('/verification/load-test', requireAuth, (req: AuthedRequest, res
   } catch (err) {
     sendError(res, err);
   }
+});
+
+// Read-only download endpoint for staged Phase 1.1 PostgreSQL migration 0001.sql (never executes SQL)
+coreRouter.get('/migrations/0001.sql', (_req, res) => {
+  const filePath = path.resolve(process.cwd(), 'supabase', 'migrations', '0001.sql');
+  if (!fs.existsSync(filePath)) {
+    res.status(404).json({ error: 'Migration file 0001.sql not found.' });
+    return;
+  }
+  res.setHeader('Content-Type', 'application/sql; charset=utf-8');
+  res.setHeader('Content-Disposition', 'attachment; filename="0001.sql"');
+  res.sendFile(filePath);
 });

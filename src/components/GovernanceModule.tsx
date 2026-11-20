@@ -628,6 +628,13 @@ export const GovernanceModule: React.FC<GovernanceProps> = ({
               >
                 <Download className="w-3.5 h-3.5" /> Export {company.code} JSON
               </button>
+              <a
+                href="/api/migrations/0001.sql"
+                download="0001.sql"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-emerald-800 bg-emerald-50 border border-emerald-300 rounded-md hover:bg-emerald-100 whitespace-nowrap"
+              >
+                <Download className="w-3.5 h-3.5" /> Download 0001.sql
+              </a>
             </div>
           </div>
 
